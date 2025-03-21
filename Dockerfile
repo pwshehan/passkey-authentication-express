@@ -7,4 +7,4 @@ RUN npm install
 
 COPY . /usr/src/app
 
-CMD [ "npx", "nodemon", "index.js" ]
+CMD [ "npx", "nodemon", "." ]

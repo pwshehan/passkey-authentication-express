@@ -1,0 +1,5 @@
+{
+  "watch": ["app", "config", "db"],
+  "ext": "js,ejs",
+  "exec": "node index.js"
+}
