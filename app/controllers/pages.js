@@ -1,8 +1,8 @@
 class PagesController {
   welcome(req, res, next) {
-    if (!req.user) return res.send("Hello World!");
+    if (!req.user) return res.render("pages/welcome");
     next();
   }
 }
 
-module.exports = new PagesController();
+module.exports = PagesController;
