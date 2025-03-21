@@ -27,6 +27,25 @@ class AuthController {
     res.render("auth/login");
   }
 
+  getChallengeFrom(store) {
+    return (req, res, next) => {
+      store.challenge(req, (err, challenge) => {
+        if (err) return next(err);
+
+        res.json({
+          challenge: base64url.encode(challenge),
+        });
+      });
+    };
+  }
+
+  logout(req, res) {
+    req.logout((err) => {
+      if (err) return next(err);
+      res.redirect("/");
+    });
+  }
+
   register(req, res) {
     res.render("auth/register");
   }
@@ -34,7 +53,7 @@ class AuthController {
   createChallengeFrom(store) {
     return (req, res, next) => {
       const user = {
-        id: uuid(),
+        id: uuid({}, Buffer.alloc(16)),
         name: req.body.email,
       };
 
