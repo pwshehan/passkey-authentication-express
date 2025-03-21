@@ -75,6 +75,8 @@ class PassportService {
   async register(user, id, publicKey, done) {
     const transaction = await db.transaction();
     try {
+      console.log(user);
+
       const newUser = await models.User.create(
         {
           email: user.name,

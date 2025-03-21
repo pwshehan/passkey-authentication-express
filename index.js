@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const multer = require("multer");
+const cookieParser = require("cookie-parser");
+
 const port = process.env.PORT || 3000;
 const host = "0.0.0.0";
 
@@ -16,6 +19,12 @@ const db = require("./db/helpers/init");
 const sessionStore = new SequelizeStore({
   db: db,
 });
+
+// Parse JSON requests
+app.use(express.json());
+app.use(multer().none());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
 
 // Templates
 app.use(layouts);
