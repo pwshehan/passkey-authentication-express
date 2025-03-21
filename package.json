@@ -10,9 +10,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "connect-session-sequelize": "^7.1.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.1",
     "passport": "^0.7.0",
     "passport-fido2-webauthn": "^0.1.0",
     "pg": "^8.14.1",
